@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lprgl3a</groupId>
+    <artifactId>validator-service</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!--
+        Aucune dependance externe : on utilise uniquement com.sun.net.httpserver.HttpServer,
+        disponible nativement dans le JDK. Maven sert ici uniquement a la gestion du build
+        (compilation, packaging en JAR executable) et non a importer des frameworks tiers.
+        Ce choix evite toute dependance non justifiee et garde le service 100% Java standard.
+    -->
+
+    <build>
+        <finalName>validator-service</finalName>
+        <plugins>
+            <!-- Plugin pour produire un JAR executable avec Main-Class definie -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.lprgl3a.validator.ValidatorServer</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
