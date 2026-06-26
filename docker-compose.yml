@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  validator:
+    build:
+      context: ./validator-service
+      dockerfile: Dockerfile
+    image: validator-service:1.0.0
+    container_name: password-validator
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    healthcheck:
+      test: ["CMD-SHELL", "java -version >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
