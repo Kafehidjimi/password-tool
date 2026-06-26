@@ -1,0 +1,19 @@
+# Artefacts de compilation Maven
+target/
+*.class
+
+# Fichiers systeme
+.DS_Store
+Thumbs.db
+
+# Logs locaux
+*.log
+
+# NOTE IMPORTANTE :
+# Le dossier .idea/ est volontairement CONSERVE (non ignore) afin de
+# permettre la verification de la configuration d'environnement et du
+# JDK utilise pour ce projet, conformement aux exigences du cours.
+# Seuls les fichiers de workspace personnels et volatils sont exclus :
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf/
